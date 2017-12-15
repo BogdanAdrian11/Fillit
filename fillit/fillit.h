@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:50:42 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/15 16:55:55 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/15 17:21:35 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 
-struct		tetramino{
-	char	row[4];
-	char	col[4];
-	int		used;
-};
+typedef struct	s_t{
+	char		row[4];
+	char		col[4];
+	int			used;
+}				t_tetramino;
 
 #endif
