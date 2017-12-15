@@ -6,15 +6,15 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:46:59 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/15 18:42:19 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/15 19:51:30 by mtudor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	increment_pos(int *row, *col, *tetra_size)
+static void	increment_pos(int *row, int *col, int *tetra_size)
 {
-	if (*col == 3)
+	if (*col == 4)
 	{
 		if (*row == 3)
 		{
@@ -33,7 +33,7 @@ static int	check_new_line(char buff[BUFF_SIZE + 1], int *i, int col, int row)
 {
 	if (buff[*i] != '\n')
 		return (0);
-	if (col != 3)
+	if (col != 4)
 		return (0);
 	if (row == 3)
 	{
@@ -59,25 +59,26 @@ static int	check_input(char buff[BUFF_SIZE + 1], t_tetramino tetra[TETRA_MAX],
 	while (buff[i] != '\0')
 	{
 		if (buff[i] == '.' || buff[i] == '#')
-		   tetra[*tetra_size]->matrix[row][col] = buff[i];
+			tetra[*tetra_size].matrix[row][col] = buff[i];
 		else
 		{
-			if (!check_new_line(buff, i, col, row)) 
+			if (!check_new_line(buff, &i, col, row))
 				return (0);
 		}
 		i++;
-		increment_pos(&row, &col, &tetra_size);
+		increment_pos(&row, &col, tetra_size);
 	}
 	return (1);
 }
 
-int			read_tetra(char *file, t_tetramino tetra[TETRA_MAX], int *tetra_size)
+int			read_tetra(char *file, t_tetramino tetra[TETRA_MAX],
+		int *tetra_size)
 {
 	int		fd;
 	int		ret;
-	char	*buff[BUFF_SIZE + 1];
+	char	buff[BUFF_SIZE + 1];
 
-	fd = open(file, buff, BUFF_SIZE);
+	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		return (1);
 	else
@@ -86,7 +87,7 @@ int			read_tetra(char *file, t_tetramino tetra[TETRA_MAX], int *tetra_size)
 		buff[ret] = '\0';
 		close(fd);
 	}
-	if (!check_input(buff, tetra, &tetra_size))
+	if (check_input(buff, tetra, tetra_size))
 	{
 		return (1);
 	}

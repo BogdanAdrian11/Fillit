@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   print_fillit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mtudor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 13:32:28 by bavram            #+#    #+#             */
-/*   Updated: 2017/11/30 13:36:41 by bavram           ###   ########.fr       */
+/*   Created: 2017/12/15 18:31:34 by mtudor            #+#    #+#             */
+/*   Updated: 2017/12/15 18:39:25 by mtudor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "fillit.h"
+
+void	print_fillit(char **fillit_output, int output_size)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < output_size)
+	{
+		j = 0;
+		while (j < output_size)
+		{
+			ft_putchar(fillit_output[i][j]);
+			j++;
+		}
+		i++;
+	}
 }

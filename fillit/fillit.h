@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:50:42 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/15 17:59:23 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/15 19:00:43 by mtudor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,12 @@ typedef struct	s_t{
 	char		matrix[4][4];
 	int			used;
 }				t_tetramino;
+
+void			show_usage(void);
+int				read_tetra(char *file, t_tetramino *tetra, int *tetra_size);
+int				valid_tetra(t_tetramino *tetra, int tetra_size);
+int				solve_tetra(t_tetramino *tetra, int tetra_size, \
+		char **filiit_output);
+void			print_fillit(char **fillit_output, int output_size);
 
 #endif
