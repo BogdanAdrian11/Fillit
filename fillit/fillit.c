@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:02:44 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/19 19:01:16 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/19 19:24:47 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **args)
 	t_fout		out;
 	int			tetra_size;
 
-	out.size = 5;
+	out.size = 0;
 	if (argc != 2)
 	{
 		show_usage();

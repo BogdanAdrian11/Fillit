@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:50:42 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/19 18:57:37 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/19 19:09:02 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct	s_o{
 void			show_usage(void);
 int				read_tetra(char *file, t_tetramino *tetra, int *tetra_size);
 int				valid_tetra(t_tetramino *tetra, int tetra_size);
-void			solve_tetra(t_tetramino *tetra, int tetra_size, t_fout out);
+void			solve_tetra(t_tetramino *tetra, int tetra_size, t_fout *out);
 void			print_fillit(t_fout out);
-void			init_output(t_fout out);
+void			init_output(t_fout *out);
 
 #endif

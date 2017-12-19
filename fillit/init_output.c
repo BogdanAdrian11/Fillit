@@ -6,7 +6,7 @@
 /*   By: mtudor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 16:40:13 by mtudor            #+#    #+#             */
-/*   Updated: 2017/12/19 19:00:41 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/19 19:12:08 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_output(t_fout *out)
 		j = 0;
 		while (j < FILLIT_MAX)
 		{
-			out.matrix[i][j] = '.';
+			(*out).matrix[i][j] = '.';
 			j++;
 		}
 		i++;
