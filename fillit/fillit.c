@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:02:44 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/15 19:48:55 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/19 19:01:16 by mtudor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **args)
 {
 	t_tetramino	tetra[TETRA_MAX];
-	char		fillit_output[FILLIT_MAX][FILLIT_MAX];
-	int			output_size;
+	t_fout		out;
 	int			tetra_size;
 
+	out.size = 5;
 	if (argc != 2)
 	{
 		show_usage();
@@ -34,7 +34,8 @@ int	main(int argc, char **args)
 		ft_putstr("tetramino error\n");
 		return (1);
 	}
-	//output_size = solve_tetra(tetra, tetra_size, fillit_output);
-	//print_fillit(fillit_output, output_size);
+	init_output(&out);
+	solve_tetra(tetra, tetra_size, &out);
+	print_fillit(out);
 	return (0);
 }

@@ -6,18 +6,20 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:46:59 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/15 19:51:30 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/19 17:19:18 by mtudor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	increment_pos(int *row, int *col, int *tetra_size)
+static void	increment_pos(int *row, int *col, int *tetra_size,
+		t_tetramino *tetra)
 {
 	if (*col == 4)
 	{
 		if (*row == 3)
 		{
+			tetra[*tetra_size].used = 0;
 			*tetra_size = *tetra_size + 1;
 			*row = 0;
 		}
@@ -66,7 +68,7 @@ static int	check_input(char buff[BUFF_SIZE + 1], t_tetramino tetra[TETRA_MAX],
 				return (0);
 		}
 		i++;
-		increment_pos(&row, &col, tetra_size);
+		increment_pos(&row, &col, tetra_size, tetra);
 	}
 	return (1);
 }

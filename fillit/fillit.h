@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:50:42 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/15 19:00:43 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/19 18:57:37 by mtudor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # define TETRA_MAX 26
-# define FILLIT_MAX 100
+# define FILLIT_MAX 10
 # define BUFF_SIZE 600
 
 typedef struct	s_t{
@@ -24,11 +24,16 @@ typedef struct	s_t{
 	int			used;
 }				t_tetramino;
 
+typedef struct	s_o{
+	char		matrix[FILLIT_MAX][FILLIT_MAX];
+	int			size;
+}				t_fout;
+
 void			show_usage(void);
 int				read_tetra(char *file, t_tetramino *tetra, int *tetra_size);
 int				valid_tetra(t_tetramino *tetra, int tetra_size);
-int				solve_tetra(t_tetramino *tetra, int tetra_size, \
-		char **filiit_output);
-void			print_fillit(char **fillit_output, int output_size);
+void			solve_tetra(t_tetramino *tetra, int tetra_size, t_fout out);
+void			print_fillit(t_fout out);
+void			init_output(t_fout out);
 
 #endif
