@@ -6,7 +6,7 @@
 /*   By: mtudor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 16:24:56 by mtudor            #+#    #+#             */
-/*   Updated: 2017/12/29 12:48:53 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 14:20:37 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ static int	solve(t_tetramino *tetra, t_fout out, int tetra_size)
 				char_change(&out, 'A' + k, '.');
 				tetra[k].used = 0;
 			}
-			char_change(&out, '#', '.');
+			else
+				char_change(&out, '#', '.');
 		}
 	}
 	return (0);

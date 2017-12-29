@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:50:42 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/28 16:15:13 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 13:47:09 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # define TETRA_MAX 26
-# define FILLIT_MAX 10
+# define FILLIT_MAX 11
 # define BUFF_SIZE 600
 
 typedef struct	s_t{

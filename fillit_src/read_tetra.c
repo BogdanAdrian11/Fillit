@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:46:59 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/29 13:27:23 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 13:54:12 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,17 @@ static int	check_new_line(char buff[BUFF_SIZE + 1], int *i, int col, int row)
 	return (1);
 }
 
+static int	valid_input(char *buff, int i, int col, int row)
+{
+	if (i < 20)
+		return (0);
+	if (buff[i - 2] != '.' && buff[i - 2] != '#')
+		return (0);
+	if (col == 0 && row == 0)
+		return (1);
+	return (0);
+}
+
 static int	check_input(char buff[BUFF_SIZE + 1], t_tetramino tetra[TETRA_MAX],
 		int *tetra_size)
 {
@@ -70,13 +81,7 @@ static int	check_input(char buff[BUFF_SIZE + 1], t_tetramino tetra[TETRA_MAX],
 		i++;
 		increment_pos(&row, &col, tetra_size, tetra);
 	}
-	if (i < 20)
-		return (0);
-	if (buff[i - 2] != '.' && buff[i - 2] != '#')
-		return (0);
-	if (col == 0 && row == 0)
-		return (1);
-	return (0);
+	return (valid_input(buff, i, col, row));
 }
 
 int			read_tetra(char *file, t_tetramino tetra[TETRA_MAX],
