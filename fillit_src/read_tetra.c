@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:46:59 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/29 13:54:12 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 14:37:40 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int			read_tetra(char *file, t_tetramino tetra[TETRA_MAX],
 	int		fd;
 	int		ret;
 	char	buff[BUFF_SIZE + 1];
+	int		i;
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -102,6 +103,12 @@ int			read_tetra(char *file, t_tetramino tetra[TETRA_MAX],
 	}
 	if (check_input(buff, tetra, tetra_size))
 	{
+		i = -1;
+		while (++i < *tetra_size)
+		{
+			tetra[i].index = i;
+			tetra_pos(tetra[i], &tetra[i].p, &tetra[i].q);
+		}
 		return (1);
 	}
 	return (0);

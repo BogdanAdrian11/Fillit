@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 16:50:42 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/29 13:47:09 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 14:35:40 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 typedef struct	s_t{
 	char		matrix[4][4];
 	int			used;
+	int			p;
+	int			q;
+	int			index;
 }				t_tetramino;
 
 typedef struct	s_o{
@@ -39,5 +42,6 @@ int				start_size(int tetra_size);
 void			char_change(t_fout *out, char c1, char c2);
 int				is_solved(t_tetramino *tetra, int tetra_size, t_fout out);
 int				next_pos(int *i, int *j, t_fout out);
+void			tetra_pos(t_tetramino tetra, int *p, int *q);
 
 #endif

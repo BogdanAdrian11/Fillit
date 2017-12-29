@@ -6,13 +6,13 @@
 /*   By: mtudor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 16:24:56 by mtudor            #+#    #+#             */
-/*   Updated: 2017/12/29 14:20:37 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 14:40:10 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	tetra_pos(t_tetramino tetra, int *p, int *q)
+void		tetra_pos(t_tetramino tetra, int *p, int *q)
 {
 	*p = 0;
 	*q = 0;
@@ -44,23 +44,20 @@ static void	increm_pos(int *i, int *j, int *p, int *q)
 
 static int	place_tetra(t_tetramino tetra, t_fout *out, int i, int j)
 {
-	int		p;
-	int		q;
 	int		count;
 
 	count = 0;
-	tetra_pos(tetra, &p, &q);
-	while (p != 4)
+	while (tetra.p != 4)
 	{
 		if (((*out).matrix[i][j] != '.' || i >= (*out).size || j >= (*out).size
-				|| i < 0 || j < 0) && tetra.matrix[p][q] == '#')
+				|| i < 0 || j < 0) && tetra.matrix[tetra.p][tetra.q] == '#')
 			return (0);
-		if (tetra.matrix[p][q] == '#')
+		if (tetra.matrix[tetra.p][tetra.q] == '#')
 		{
-			(*out).matrix[i][j] = tetra.matrix[p][q];
+			(*out).matrix[i][j] = 'A' + tetra.index;
 			count++;
 		}
-		increm_pos(&i, &j, &p, &q);
+		increm_pos(&i, &j, &(tetra.p), &(tetra.q));
 	}
 	if (count == 4)
 	{
@@ -85,15 +82,12 @@ static int	solve(t_tetramino *tetra, t_fout out, int tetra_size)
 		{
 			if (place_tetra(tetra[k], &out, i, j))
 			{
-				char_change(&out, '#', 'A' + k);
 				tetra[k].used = 1;
 				if (solve(tetra, out, tetra_size))
 					return (1);
-				char_change(&out, 'A' + k, '.');
 				tetra[k].used = 0;
 			}
-			else
-				char_change(&out, '#', '.');
+			char_change(&out, 'A' + k, '.');
 		}
 	}
 	return (0);
