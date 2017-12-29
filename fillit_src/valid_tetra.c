@@ -6,7 +6,7 @@
 /*   By: mtudor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:45:53 by mtudor            #+#    #+#             */
-/*   Updated: 2017/12/15 19:46:34 by mtudor           ###   ########.fr       */
+/*   Updated: 2017/12/29 13:39:38 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,34 +36,45 @@ static int	filled_blocks(t_tetramino tetra)
 
 static int	is_connected(t_tetramino tetra, int i, int j)
 {
+	int		con;
+
+	con = 0;
 	if (i != 0 && tetra.matrix[i - 1][j] == '#')
-		return (1);
+		con++;
 	if (i != 3 && tetra.matrix[i + 1][j] == '#')
-		return (1);
+		con++;
 	if (j != 0 && tetra.matrix[i][j - 1] == '#')
-		return (1);
+		con++;
 	if (j != 3 && tetra.matrix[i][j + 1] == '#')
-		return (1);
-	return (0);
+		con++;
+	return (con);
 }
 
 static int	connected_blocks(t_tetramino tetra)
 {
 	int		i;
 	int		j;
+	int		con;
+	int		counter;
 
 	i = 0;
+	counter = 0;
 	while (i < 4)
 	{
 		j = 0;
 		while (j < 4)
 		{
-			if (tetra.matrix[i][j] == '#' && !is_connected(tetra, i, j))
+			con = is_connected(tetra, i, j);
+			if (tetra.matrix[i][j] == '#' && con == 0)
 				return (0);
+			if (tetra.matrix[i][j] == '#')
+				counter = counter + con;
 			j++;
 		}
 		i++;
 	}
+	if (counter < 6)
+		return (0);
 	return (1);
 }
 

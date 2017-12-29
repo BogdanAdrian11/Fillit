@@ -6,7 +6,7 @@
 /*   By: mtudor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/19 16:24:56 by mtudor            #+#    #+#             */
-/*   Updated: 2017/12/29 12:41:49 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 12:48:53 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static int	place_tetra(t_tetramino tetra, t_fout *out, int i, int j)
 	tetra_pos(tetra, &p, &q);
 	while (p != 4)
 	{
-		if (((*out).matrix[i][j] != '.' || i >= (*out).size || j >= (*out).size ||
-				i < 0 || j < 0) && tetra.matrix[p][q] == '#')
+		if (((*out).matrix[i][j] != '.' || i >= (*out).size || j >= (*out).size
+				|| i < 0 || j < 0) && tetra.matrix[p][q] == '#')
 			return (0);
 		if (tetra.matrix[p][q] == '#')
 		{
