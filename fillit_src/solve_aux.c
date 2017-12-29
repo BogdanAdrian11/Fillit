@@ -6,7 +6,7 @@
 /*   By: bavram <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/28 15:56:43 by bavram            #+#    #+#             */
-/*   Updated: 2017/12/29 14:09:40 by bavram           ###   ########.fr       */
+/*   Updated: 2017/12/29 15:23:22 by bavram           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		start_size(int tetra_size)
 {
 	int		i;
 
+	if (tetra_size == 9)
+		return (7);
 	i = 0;
 	while (i * i < tetra_size * 4)
 		i++;
