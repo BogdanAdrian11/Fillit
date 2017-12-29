@@ -6,7 +6,7 @@
 #    By: bavram <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/15 16:56:17 by bavram            #+#    #+#              #
-#    Updated: 2017/12/28 15:55:28 by bavram           ###   ########.fr        #
+#    Updated: 2017/12/29 15:35:18 by mtudor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ HEADFILLIT = fillit_src/
 
 NAME = fillit
 
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
